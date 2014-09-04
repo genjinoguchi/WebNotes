@@ -14,4 +14,8 @@ function DrawString(message, xcor, ycor, fontSize, fill, fontFamily, fontStyle){
 		context.fillStyle = this.fill;
 		context.fillText(this.message, this.xcor, this.ycor);
 	}
+	this.displace = function(x, y){
+		this.xcor += x;
+		this.ycor += y;
+	}
 }
