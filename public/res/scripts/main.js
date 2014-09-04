@@ -3,24 +3,28 @@
 var canvas
 var context;
 var objects;
-var coordinates;
+
+var testBubble;
+
+//Mouse and Keyboard
+var cursor;
+var mousedown = false;
 
 window.onload = function(){
 	//Initializers
 	canvas = document.getElementById("main-canvas");
 	context = canvas.getContext("2d");
 	objects = [];
+	cursor = {};
 
-	coordinates = new DrawString();
-	objects.push(coordinates);
+	testBubble = new Bubble();
+	objects.push(testBubble);
 
+	paint();
 
 	//Listeners
 	canvas.addEventListener('mousemove', function(evt) {
-		canvas.width = canvas.width;
-		var position = getMousePosition(canvas, evt);
-		coordinates.message = position.x+"            "+position.y;
-		paint();
+		coordinates = getMousePosition(canvas, evt);
 
 		function getMousePosition(canvas, evt){
 			var bounds = canvas.getBoundingClientRect();
@@ -30,6 +34,15 @@ window.onload = function(){
 			}
 		}
 	} , false);
+
+	canvas.addEventListener('mousedown', function(){
+		mousedown = true;
+	}, false);
+	canvas.addEventListener('mouseup', function(){
+		mousedown = false;
+	}, false)
+
+
 
 	function paint(){
 		//Clear the canvas
