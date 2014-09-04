@@ -5,6 +5,7 @@ var context;
 var objects;
 
 var testBubble;
+var closest;
 
 //Mouse and Keyboard
 var mousex=0, mousey=0, prevmousex=0, prevmousey=0;
@@ -30,6 +31,16 @@ window.onload = function(){
 		 mousex = position.x;
 		 mousey = position.y;
 
+		 if(mousedown){
+		 	if(closest){
+		 		console.log(mousex + "   " + mousey + "    ")
+		 		closest.xcor = mousex;
+		 		closest.ycor = mousey;
+		 		//closest.displace(mousex - prevmousex, mousey - prevmousey);
+		 	}
+		 }
+
+
 		function getMousePosition(canvas, evt){
 			var bounds = canvas.getBoundingClientRect();
 			return {
@@ -41,12 +52,10 @@ window.onload = function(){
 
 	canvas.addEventListener('mousedown', function(){
 		mousedown = true;
-		var closest;
+
 		for(var x=0;x<objects.length;x++){
 			if(objects[x].distanceSq(mousex, mousey)<Math.pow(objects[x].radius,2)){
-				objects[x].xcor = mousex;
-				objects[x].ycor = mousey;
-				//objects[x].displace(mousex - prevmousex, mousey - prevmousey);
+				closest = objects[x];
 			}
 		}
 		paint();
@@ -54,6 +63,7 @@ window.onload = function(){
 	}, false);
 	canvas.addEventListener('mouseup', function(){
 		mousedown = false;
+		console.log("HEREHEREIJRWOIEJFO")
 	}, false)
 
 
