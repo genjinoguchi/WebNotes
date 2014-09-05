@@ -2,8 +2,8 @@
 
 Bubble = function(xcor, ycor, radius, color){
 	this.radius = radius || 100;
-	this.xcor = xcor || 300;
-	this.ycor = ycor || 300;
+	this.xcor = xcor || canvas.width;
+	this.ycor = ycor || canvas.height;
 	this.color = color || "gray";
 
 	this.objects = [];
