@@ -1,16 +1,17 @@
 //bubble
 
-Bubble = function(xcor, ycor, radius){
+Bubble = function(xcor, ycor, radius, color){
 	this.radius = radius || 100;
 	this.xcor = xcor || 300;
 	this.ycor = ycor || 300;
+	this.color = color || "gray";
 
 	this.objects = [];
 
 	this.draw = function(context){
 		context.beginPath();
 		context.arc(this.xcor, this.ycor, this.radius, 0, 2 * Math.PI, false);
-		context.fillStyle = 'gray';
+		context.fillStyle = this.color;
 		context.fill();
 		context.lineWidth = 1;
 		context.strokeStyle = '#000000';

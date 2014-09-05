@@ -4,7 +4,7 @@ var canvas
 var context;
 var objects;
 
-var testBubble;
+var grayBubble, greenBubble;
 var closest;
 
 //Mouse and Keyboard
@@ -17,8 +17,10 @@ window.onload = function(){
 	context = canvas.getContext("2d");
 	objects = [];
 
-	testBubble = new Bubble();
-	objects.push(testBubble);
+	grayBubble = new Bubble(100,100,50,"gray");
+	greenBubble = new Bubble(500,300,100,"green");
+	objects.push(grayBubble);
+	objects.push(greenBubble);
 
 	paint();
 
@@ -31,6 +33,7 @@ window.onload = function(){
 		 mousex = position.x;
 		 mousey = position.y;
 
+		 console.log(closest)
 
 		 if(mousedown){
 		 	if(closest){
@@ -42,6 +45,14 @@ window.onload = function(){
 		 		closest.ycor += (mousey - prevmousey);
 		 		paint();
 		 	}
+		 	else{
+		 		for(var x=0;x<objects.length;x++){
+		 			objects[x].xcor += (mousex - prevmousex);
+		 			objects[x].ycor += (mousey - prevmousey);
+		 		}
+		 		paint();
+		 	}
+		 	
 		 }
 
 		function getMousePosition(canvas, evt){
