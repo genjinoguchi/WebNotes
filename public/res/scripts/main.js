@@ -31,13 +31,17 @@ window.onload = function(){
 		 mousex = position.x;
 		 mousey = position.y;
 
+		 console.log(mousedown);
+
 		 if(mousedown){
 		 	if(closest){
-		 		console.log(mousex + "   " + mousey + "    ")
-		 		closest.xcor = mousex;
-		 		closest.ycor = mousey;
+		 		//console.log(mousex + "   " + mousey + "    ")
+		 		//closest.xcor = mousex;
+		 		//closest.ycor = mousey;
 		 		//closest.displace(mousex - prevmousex, mousey - prevmousey);
-		 	}
+		 		closest.xcor += (mousex - prevmousex);
+		 		closest.ycor += (mousey - prevmousey);
+		 	}{}
 		 }
 
 
@@ -63,7 +67,6 @@ window.onload = function(){
 	}, false);
 	canvas.addEventListener('mouseup', function(){
 		mousedown = false;
-		console.log("HEREHEREIJRWOIEJFO")
 	}, false)
 
 
