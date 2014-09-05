@@ -6,6 +6,7 @@ A note-taking web app centered around connected bits of information.
 Things to accomplish: 
 * Panning, dragging, zooming
 * z-indexes.
+* Make my own linked list
 
 Resources:
 Canvas tutorial: http://diveintohtml5.info/canvas.html
