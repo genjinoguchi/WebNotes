@@ -3,6 +3,10 @@ WebNotes
 
 A note-taking web app centered around connected bits of information.
 
+Things to accomplish: 
+* Panning, dragging, zooming
+* z-indexes.
+
 Resources:
 Canvas tutorial: http://diveintohtml5.info/canvas.html
 Mouse Positioning: http://www.html5canvastutorials.com/advanced/html5-canvas-mouse-coordinates/
