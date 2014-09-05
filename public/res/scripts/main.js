@@ -31,7 +31,6 @@ window.onload = function(){
 		 mousex = position.x;
 		 mousey = position.y;
 
-		 console.log(mousedown);
 
 		 if(mousedown){
 		 	if(closest){
@@ -41,9 +40,9 @@ window.onload = function(){
 		 		//closest.displace(mousex - prevmousex, mousey - prevmousey);
 		 		closest.xcor += (mousex - prevmousex);
 		 		closest.ycor += (mousey - prevmousey);
-		 	}{}
+		 		paint();
+		 	}
 		 }
-
 
 		function getMousePosition(canvas, evt){
 			var bounds = canvas.getBoundingClientRect();
@@ -62,11 +61,11 @@ window.onload = function(){
 				closest = objects[x];
 			}
 		}
-		paint();
 
 	}, false);
 	canvas.addEventListener('mouseup', function(){
 		mousedown = false;
+		closest = null;
 	}, false)
 
 
