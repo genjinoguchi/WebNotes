@@ -1,13 +1,12 @@
 //My linked list
 
-LinkedList = function(){
+LinkedList = function(length, prehead){
 	this.length = 0;
-	this.prehead = new Node();
-
-	Node = function(object){
-		this.data = object || null;
+	this.prehead = Node(null);
+	
+	this.Node = function(data){
+		this.data = data || null;
 		this.next = null;
-
 	}
 
 	this.get = function(position){
@@ -18,7 +17,7 @@ LinkedList = function(){
 			return null;
 		}
 		var current = prehead;
-		for(int x=-1;x<position;x++){
+		for(var x=-1;x<position;x++){
 			current = current.next;
 		}
 		return current;
@@ -30,8 +29,8 @@ LinkedList = function(){
 			return null;
 		}else{
 			var tmp = new Node(object);
-			tmp.next = getNode(position-1).next;
-			getNode(position-1).next = n;
+			tmp.next = this.getNode(position-1).next;
+			this.getNode(position-1).next = n;
 			this.length++;
 		}
 	}
@@ -40,16 +39,16 @@ LinkedList = function(){
 		if(position>=this.length || position<0){
 			return null;
 		}else if(position == length-1){
-			getNode(position-1).next=null;
+			this.getNode(position-1).next=null;
 		}else{
-			getNode(position-1).next=getNode(position+1));
+			this.getNode(position-1).next=this.getNode(position+1);
 			this.length--;
 		}
 	}
 
 	this.find = function(object){
 		try{
-			int currentPlace = 0;
+			var currentPlace = 0;
 			while(true){
 				if(get(currentPlace)===object){
 					return currentPlace;
@@ -63,7 +62,8 @@ LinkedList = function(){
 	}
 
 	this.set = function(position, object){
-		getNode(position).data = object;
+		this.getNode(position).data = object;
 	}
 
 }
+

@@ -15,12 +15,12 @@ window.onload = function(){
 	//Initializers
 	canvas = document.getElementById("main-canvas");
 	context = canvas.getContext("2d");
-	objects = [];
+	objects = new LinkedList();
 
 	grayBubble = new Bubble(100,100,50,"gray");
 	greenBubble = new Bubble(500,300,100,"green");
-	objects.push(grayBubble);
-	objects.push(greenBubble);
+	objects.add(grayBubble);
+	objects.add(greenBubble);
 
 	paint();
 
@@ -84,8 +84,9 @@ window.onload = function(){
 	function paint(){
 		//Clear the canvas
 		canvas.width = canvas.width;
+
 		for(var x=0;x<objects.length;x++){
-			objects[x].draw(context);
+			objects.get(x).draw(context);
 		}
 	}
 
